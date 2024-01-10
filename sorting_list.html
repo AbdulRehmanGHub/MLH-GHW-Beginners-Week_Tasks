@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Sorter</title>
+  <script>
+    function sortNumbers() {
+      // Get the numbers from the input field and split them into an array
+      let inputNumbers = document.getElementById("numbers").value;
+      let numbersArray = inputNumbers.split(",").map(Number);
+
+      // Sort the array of numbers
+      numbersArray.sort(function(a, b) {
+        return a - b;
+      });
+
+      // Display the sorted numbers on the webpage
+      document.getElementById("result").innerHTML = "Sorted Numbers: " + numbersArray.join(", ");
+    }
+  </script>
+</head>
+<body>
+
+<h1>Number Sorter</h1>
+
+<p>Enter numbers separated by commas:</p>
+<input type="text" id="numbers">
+<button onclick="sortNumbers()">Sort</button>
+
+<p id="result"></p>
+
+</body>
+</html>
