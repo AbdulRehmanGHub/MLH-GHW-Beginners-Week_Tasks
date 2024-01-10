@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissors Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Rock, Paper, Scissors Game</h1>
+
+<p>Make your choice: </p>
+<button onclick="playGame('rock')">Rock</button>
+<button onclick="playGame('paper')">Paper</button>
+<button onclick="playGame('scissors')">Scissors</button>
+
+<p id="result"></p>
+
+<script>
+  function playGame(userChoice) {
+    // Array of choices for the computer
+    const choices = ["rock", "paper", "scissors"];
+
+    // Randomly select a choice for the computer
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+    // Compare userChoice and computerChoice to determine the winner
+    let result;
+    if (userChoice === computerChoice) {
+      result = "It's a tie!";
+    } else if (
+      (userChoice === "rock" && computerChoice === "scissors") ||
+      (userChoice === "paper" && computerChoice === "rock") ||
+      (userChoice === "scissors" && computerChoice === "paper")
+    ) {
+      result = "You win!";
+    } else {
+      result = "You lose!";
+    }
+
+    // Display the result on the webpage
+    document.getElementById("result").innerHTML = `You chose ${userChoice}. Computer chose ${computerChoice}. ${result}`;
+  }
+</script>
+
+</body>
+</html>
